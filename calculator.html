@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중국 물류 계산기 | 예상 원가·마진 계산</title>
+    <meta
+      name="description"
+      content="상품 단가, 수량, 배송비, 관세율, 부가세 여부를 입력해 중국 수입 예상 총원가와 마진을 계산할 수 있는 물류 계산기입니다."
+    />
+    <link rel="canonical" href="./calculator.html" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="./index.html">한중물류파트너</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="gnb">메뉴</button>
+        <nav id="gnb" class="gnb" aria-label="주요 메뉴">
+          <a href="./services.html">서비스</a>
+          <a href="./calculator.html" aria-current="page">물류 계산기</a>
+          <a href="./import-request.html">수입 신청</a>
+          <a href="./platform-request.html">플랫폼 판매 신청</a>
+          <a href="./contact.html">문의하기</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="section">
+      <div class="container">
+        <p class="eyebrow">Calculator</p>
+        <h1>중국 수입 물류 계산기</h1>
+        <p class="page-lead">예상값을 빠르게 확인하는 참고용 계산기입니다. 실제 비용은 품목/조건에 따라 달라질 수 있습니다.</p>
+
+        <form id="cost-calculator" class="form-grid" novalidate>
+          <label>
+            상품 단가(원)
+            <input type="number" name="unitPrice" min="0" step="1" required />
+          </label>
+          <label>
+            수량
+            <input type="number" name="quantity" min="1" step="1" required />
+          </label>
+          <label>
+            중국 내 배송비(원)
+            <input type="number" name="chinaShipping" min="0" step="1" value="0" required />
+          </label>
+          <label>
+            국제배송비(원)
+            <input type="number" name="intlShipping" min="0" step="1" value="0" required />
+          </label>
+          <label>
+            관세율(%)
+            <input type="number" name="dutyRate" min="0" step="0.01" value="0" required />
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" name="vatEnabled" checked />
+            부가세(10%) 적용
+          </label>
+          <label>
+            기타 수수료(원)
+            <input type="number" name="otherFees" min="0" step="1" value="0" required />
+          </label>
+          <label>
+            예상 판매가(원, 선택)
+            <input type="number" name="expectedSalePrice" min="0" step="1" />
+          </label>
+
+          <div class="form-actions">
+            <button class="btn primary" type="submit">계산하기</button>
+            <button class="btn ghost" type="reset">초기화</button>
+          </div>
+          <p id="calc-error" class="error-text" aria-live="polite"></p>
+        </form>
+
+        <section class="result-box" aria-live="polite" aria-label="계산 결과">
+          <h2>계산 결과</h2>
+          <dl class="result-list">
+            <div><dt>총상품금액</dt><dd id="r-total-product">-</dd></div>
+            <div><dt>예상 총원가</dt><dd id="r-total-cost">-</dd></div>
+            <div><dt>개당 원가</dt><dd id="r-unit-cost">-</dd></div>
+            <div><dt>예상 마진</dt><dd id="r-margin">-</dd></div>
+            <div><dt>예상 마진율</dt><dd id="r-margin-rate">-</dd></div>
+          </dl>
+        </section>
+
+        <div class="section-cta">
+          <a class="btn secondary" href="./import-request.html">이 계산값으로 수입 신청하기</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><strong>한중물류파트너</strong> | 중국 수입·물류·통관</p>
+        <p>문의: 02-0000-0000 · contact@example.com</p>
+      </div>
+    </footer>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/calculator.js"></script>
+  </body>
+</html>
