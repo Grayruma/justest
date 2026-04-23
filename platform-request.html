@@ -3,25 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>중국 플랫폼 판매 신청 | 한중물류파트너</title>
+    <title>중국 플랫폼 판매 신청 안내 | 접수 준비정보 확인</title>
     <meta
       name="description"
-      content="중국 플랫폼 판매 신청 페이지입니다. 판매 채널, 취급 품목, 예상 물량 정보를 준비하고 Google Forms로 접수할 수 있습니다."
+      content="중국 플랫폼 판매 신청 전 준비 정보를 확인하고 Google Forms 링크 또는 iframe 임베드 방식으로 접수할 수 있는 안내 페이지입니다."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="중국 플랫폼 판매 신청 안내 | 한중물류파트너" />
+    <meta property="og:description" content="판매 채널, 품목, 물량 정보를 준비하고 판매 신청을 진행하세요." />
+    <meta property="og:url" content="./platform-request.html" />
+    <meta property="og:image" content="./assets/images/og-default.jpg" />
     <link rel="canonical" href="./platform-request.html" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">본문 바로가기</a>
+
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="./index.html">한중물류파트너</a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="gnb">메뉴</button>
+        <a class="logo" href="./index.html" aria-label="한중물류파트너 홈">한중물류파트너</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="gnb">메뉴</button>
         <nav id="gnb" class="gnb" aria-label="주요 메뉴">
+          <a href="./index.html">홈</a>
           <a href="./services.html">서비스</a>
           <a href="./calculator.html">물류 계산기</a>
           <a href="./import-request.html">수입 신청</a>
-          <a href="./platform-request.html" aria-current="page">플랫폼 판매 신청</a>
+          <a href="./platform-request.html" aria-current="page">판매 신청</a>
           <a href="./contact.html">문의하기</a>
         </nav>
       </div>
@@ -29,51 +36,67 @@
 
     <main id="main" class="section">
       <div class="container">
-        <p class="eyebrow">Platform Sales Request</p>
-        <h1>중국 플랫폼 판매 신청</h1>
-        <p class="page-lead">판매 운영 검토를 위해 아래 정보를 준비해 주세요.</p>
+        <p class="eyebrow">Platform Sales Request Guide</p>
+        <h1>중국 플랫폼 판매 신청 안내</h1>
+        <p class="page-lead">신청 전에 채널·품목·물량 정보를 정리하면 검토 시간을 줄일 수 있습니다.</p>
 
-        <section class="info-box">
-          <h2>신청 전 준비 정보</h2>
-          <ul>
+        <section class="info-box" aria-labelledby="platform-check-title">
+          <h2 id="platform-check-title">신청 전 준비사항</h2>
+          <ul class="check-list">
             <li>판매 희망 채널(예: 티몰, 징둥 등)</li>
             <li>취급 품목 및 카테고리</li>
             <li>월 예상 물량 및 목표 일정</li>
-            <li>기존 운영 현황(있다면)</li>
+            <li>현재 운영 중인 판매 채널(있다면)</li>
           </ul>
         </section>
 
-        <section class="form-placeholder">
-          <h2>Google Forms 접수 영역</h2>
-          <p>운영 시 실제 폼 주소로 변경해 사용하세요.</p>
+        <section class="form-placeholder" aria-labelledby="platform-form-title">
+          <h2 id="platform-form-title">신청 접수 (Google Forms Placeholder)</h2>
+          <p>아래 링크 URL 또는 iframe src를 실제 Google Forms 주소로 교체해 사용하세요.</p>
 
-          <a class="btn primary" href="https://forms.google.com/your-platform-form" target="_blank" rel="noopener">
-            Google Forms로 판매 신청하기 (Placeholder)
-          </a>
+          <div class="placeholder-card">
+            <h3>링크 방식</h3>
+            <p>빠르게 배포하기 쉬운 방식입니다. 새 탭에서 신청서를 작성합니다.</p>
+            <a class="btn primary" href="https://forms.google.com/your-platform-form" target="_blank" rel="noopener">
+              판매 신청 폼 열기 (Placeholder)
+            </a>
+          </div>
 
-          <!-- Google Forms iframe 삽입 위치 (Placeholder)
-          <iframe
-            src="https://docs.google.com/forms/d/e/your-form-id/viewform?embedded=true"
-            width="100%"
-            height="900"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="중국 플랫폼 판매 신청 폼"
-          >로딩 중...</iframe>
-          -->
+          <div class="placeholder-card">
+            <h3>iframe 임베드 방식</h3>
+            <p>신청 페이지 안에서 바로 입력받고 싶다면 아래 주석 위치에 iframe을 적용하세요.</p>
+            <!-- Google Forms iframe 삽입 위치 (Placeholder)
+            <iframe
+              src="https://docs.google.com/forms/d/e/your-form-id/viewform?embedded=true"
+              width="100%"
+              height="980"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="중국 플랫폼 판매 신청 폼"
+            >로딩 중...</iframe>
+            -->
+          </div>
         </section>
 
-        <div class="section-cta">
-          <a class="btn secondary" href="./contact.html">판매 운영 상담 문의</a>
-        </div>
+        <section class="info-box" aria-labelledby="platform-help-title">
+          <h2 id="platform-help-title">신청이 어려운 경우</h2>
+          <p>조건 정리가 필요하면 상담 문의 후 신청 방향을 먼저 정리할 수 있습니다.</p>
+          <a class="btn ghost" href="./contact.html">상담 문의하기</a>
+        </section>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p><strong>한중물류파트너</strong> | 중국 수입·물류·통관</p>
-        <p>문의: 02-0000-0000 · contact@example.com</p>
+        <div>
+          <p class="footer-brand">한중물류파트너</p>
+          <p>중국 수입 · 국제배송 · 통관 · 국내 유통 연계</p>
+        </div>
+        <div>
+          <p>대표 문의: <a href="tel:0200000000">02-0000-0000</a></p>
+          <p>이메일: <a href="mailto:contact@example.com">contact@example.com</a></p>
+        </div>
       </div>
     </footer>
 

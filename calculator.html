@@ -3,25 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>중국 물류 계산기 | 예상 원가·마진 계산</title>
+    <title>물류 계산기 | 중국 수입 예상 총원가·마진 계산</title>
     <meta
       name="description"
-      content="상품 단가, 수량, 배송비, 관세율, 부가세 여부를 입력해 중국 수입 예상 총원가와 마진을 계산할 수 있는 물류 계산기입니다."
+      content="상품 단가, 수량, 배송비, 관세율, 부가세 여부를 입력해 중국 수입 예상 총원가와 개당 원가를 계산하세요. 예상 판매가 입력 시 마진과 마진율도 확인할 수 있습니다."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="물류 계산기 | 한중물류파트너" />
+    <meta property="og:description" content="중국 수입 시 예상 비용·원가·마진을 빠르게 계산할 수 있는 브라우저 기반 계산기입니다." />
+    <meta property="og:url" content="./calculator.html" />
+    <meta property="og:image" content="./assets/images/og-default.jpg" />
     <link rel="canonical" href="./calculator.html" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">본문 바로가기</a>
+
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="./index.html">한중물류파트너</a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="gnb">메뉴</button>
+        <a class="logo" href="./index.html" aria-label="한중물류파트너 홈">한중물류파트너</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="gnb">메뉴</button>
         <nav id="gnb" class="gnb" aria-label="주요 메뉴">
+          <a href="./index.html">홈</a>
           <a href="./services.html">서비스</a>
           <a href="./calculator.html" aria-current="page">물류 계산기</a>
           <a href="./import-request.html">수입 신청</a>
-          <a href="./platform-request.html">플랫폼 판매 신청</a>
+          <a href="./platform-request.html">판매 신청</a>
           <a href="./contact.html">문의하기</a>
         </nav>
       </div>
@@ -29,72 +36,88 @@
 
     <main id="main" class="section">
       <div class="container">
-        <p class="eyebrow">Calculator</p>
-        <h1>중국 수입 물류 계산기</h1>
-        <p class="page-lead">예상값을 빠르게 확인하는 참고용 계산기입니다. 실제 비용은 품목/조건에 따라 달라질 수 있습니다.</p>
+        <p class="eyebrow">Import Cost Calculator</p>
+        <h1>중국 수입 예상 비용 계산기</h1>
+        <p class="page-lead">
+          계산 결과는 사전 검토용 예상치입니다. 실제 청구 비용은 품목, 운송 조건, 통관 상황에 따라 달라질 수 있습니다.
+        </p>
 
-        <form id="cost-calculator" class="form-grid" novalidate>
-          <label>
-            상품 단가(원)
-            <input type="number" name="unitPrice" min="0" step="1" required />
-          </label>
-          <label>
-            수량
-            <input type="number" name="quantity" min="1" step="1" required />
-          </label>
-          <label>
-            중국 내 배송비(원)
-            <input type="number" name="chinaShipping" min="0" step="1" value="0" required />
-          </label>
-          <label>
-            국제배송비(원)
-            <input type="number" name="intlShipping" min="0" step="1" value="0" required />
-          </label>
-          <label>
-            관세율(%)
-            <input type="number" name="dutyRate" min="0" step="0.01" value="0" required />
-          </label>
-          <label class="checkbox-row">
-            <input type="checkbox" name="vatEnabled" checked />
-            부가세(10%) 적용
-          </label>
-          <label>
-            기타 수수료(원)
-            <input type="number" name="otherFees" min="0" step="1" value="0" required />
-          </label>
-          <label>
-            예상 판매가(원, 선택)
-            <input type="number" name="expectedSalePrice" min="0" step="1" />
-          </label>
+        <div class="calc-layout">
+          <section class="calc-input" aria-labelledby="calc-input-title">
+            <h2 id="calc-input-title">입력 항목</h2>
+            <p class="helper-text">수량은 1 이상 정수로 입력하고, 금액은 원 단위로 입력하세요.</p>
 
-          <div class="form-actions">
-            <button class="btn primary" type="submit">계산하기</button>
-            <button class="btn ghost" type="reset">초기화</button>
-          </div>
-          <p id="calc-error" class="error-text" aria-live="polite"></p>
-        </form>
+            <form id="cost-calculator" class="form-grid" novalidate>
+              <label for="unitPrice">
+                상품 단가(원)
+                <input id="unitPrice" type="number" name="unitPrice" inputmode="numeric" min="0" step="1" required />
+              </label>
+              <label for="quantity">
+                수량
+                <input id="quantity" type="number" name="quantity" inputmode="numeric" min="1" step="1" required />
+              </label>
+              <label for="chinaShipping">
+                중국 내 배송비(원)
+                <input id="chinaShipping" type="number" name="chinaShipping" inputmode="numeric" min="0" step="1" value="0" required />
+              </label>
+              <label for="intlShipping">
+                국제배송비(원)
+                <input id="intlShipping" type="number" name="intlShipping" inputmode="numeric" min="0" step="1" value="0" required />
+              </label>
+              <label for="dutyRate">
+                관세율(%)
+                <input id="dutyRate" type="number" name="dutyRate" inputmode="decimal" min="0" step="0.01" value="0" required />
+              </label>
+              <label class="checkbox-row" for="vatEnabled">
+                <input id="vatEnabled" type="checkbox" name="vatEnabled" checked />
+                부가세(10%) 적용
+              </label>
+              <label for="otherFees">
+                기타 수수료(원)
+                <input id="otherFees" type="number" name="otherFees" inputmode="numeric" min="0" step="1" value="0" required />
+              </label>
+              <label for="expectedSalePrice">
+                예상 판매가(원, 선택)
+                <input id="expectedSalePrice" type="number" name="expectedSalePrice" inputmode="numeric" min="0" step="1" />
+              </label>
 
-        <section class="result-box" aria-live="polite" aria-label="계산 결과">
-          <h2>계산 결과</h2>
-          <dl class="result-list">
-            <div><dt>총상품금액</dt><dd id="r-total-product">-</dd></div>
-            <div><dt>예상 총원가</dt><dd id="r-total-cost">-</dd></div>
-            <div><dt>개당 원가</dt><dd id="r-unit-cost">-</dd></div>
-            <div><dt>예상 마진</dt><dd id="r-margin">-</dd></div>
-            <div><dt>예상 마진율</dt><dd id="r-margin-rate">-</dd></div>
-          </dl>
-        </section>
+              <div class="form-actions">
+                <button class="btn primary" type="submit">계산 실행</button>
+                <button class="btn ghost" type="reset">입력 초기화</button>
+              </div>
+              <p id="calc-error" class="error-text" role="status" aria-live="polite"></p>
+            </form>
+          </section>
 
-        <div class="section-cta">
-          <a class="btn secondary" href="./import-request.html">이 계산값으로 수입 신청하기</a>
+          <section class="calc-result" aria-live="polite" aria-labelledby="calc-result-title">
+            <h2 id="calc-result-title">계산 결과</h2>
+            <p class="helper-text">예상 판매가를 입력하지 않으면 마진 항목은 계산하지 않습니다.</p>
+            <dl class="result-list">
+              <div><dt>총상품금액</dt><dd id="r-total-product">-</dd></div>
+              <div class="highlight"><dt>예상 총원가</dt><dd id="r-total-cost">-</dd></div>
+              <div><dt>개당 원가</dt><dd id="r-unit-cost">-</dd></div>
+              <div><dt>예상 마진</dt><dd id="r-margin">예상 판매가 입력 시 계산</dd></div>
+              <div><dt>예상 마진율</dt><dd id="r-margin-rate">예상 판매가 입력 시 계산</dd></div>
+            </dl>
+
+            <div class="inline-cta">
+              <a class="btn secondary" href="./import-request.html">수입 신청 페이지 이동</a>
+            </div>
+          </section>
         </div>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p><strong>한중물류파트너</strong> | 중국 수입·물류·통관</p>
-        <p>문의: 02-0000-0000 · contact@example.com</p>
+        <div>
+          <p class="footer-brand">한중물류파트너</p>
+          <p>중국 수입 · 국제배송 · 통관 · 국내 유통 연계</p>
+        </div>
+        <div>
+          <p>대표 문의: <a href="tel:0200000000">02-0000-0000</a></p>
+          <p>이메일: <a href="mailto:contact@example.com">contact@example.com</a></p>
+        </div>
       </div>
     </footer>
 
